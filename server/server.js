@@ -12,7 +12,7 @@ const app = new Rayconnect(
 );
 
 app.OnConnect(async () => {
-  const user = await miapp.GetUserAccess({
+  const user = await app.GetUserAccess({
     username: process.env.APP_USERNAME,
     password: process.env.APP_PASSWORD,
   });
@@ -21,7 +21,7 @@ app.OnConnect(async () => {
 
   // load permissions
   permissions.forEach(async (element) => {
-    await miapp.changePermissions(element);
+    await app.changePermissions(element);
   });
 });
 
